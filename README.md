@@ -22,7 +22,7 @@ Progress is measured on a 0 to 100 mastery scale. The scoring model evaluates th
 Words and phrases encountered during writing or text review can be saved into an integrated dictionary. Each record stores the word, its translation, surrounding context, and language pair. The dictionary supports instant search and filtering by language pair.
 
 ### Data Storage and Localization
-All application data—essays, evaluation history, and dictionary entries—lives strictly inside the browser via IndexedDB. There is no external account or database dependency. Users can export their entire workspace into a `.tvoor` file for backup or cross-device transfer, and restore previous backups at any time.
+All application data – essays, evaluation history, and dictionary entries – lives strictly inside the browser via IndexedDB. There is no external account or database dependency. Users can export their entire workspace into a `.tvoor` file for backup or cross-device transfer, and restore previous backups at any time.
 
 The application includes light and dark display modes and is fully localized into English, Russian, Belarusian, Polish, German, Spanish, Lithuanian, and Turkish.
 
