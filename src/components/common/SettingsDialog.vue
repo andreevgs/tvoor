@@ -50,7 +50,7 @@
 
   <input
     ref="fileInput"
-    accept=".llea"
+    accept=".tvoor"
     style="display: none"
     type="file"
     @change="onFileSelected"

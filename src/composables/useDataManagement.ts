@@ -30,7 +30,7 @@ export function useDataManagement() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "data.llea";
+      a.download = "data.tvoor";
       document.body.append(a);
       a.click();
       a.remove();

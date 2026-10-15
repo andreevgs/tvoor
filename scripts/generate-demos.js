@@ -48,7 +48,7 @@ function buildProfile({ essays, dictionaryEntries }) {
 }
 
 // -------------------------------------------------------------
-// PROFILE 1: beginner-5.llea (5 essays, red/struggling zone)
+// PROFILE 1: beginner-5.tvoor (5 essays, red/struggling zone)
 // -------------------------------------------------------------
 const beginnerEssays = [
   {
@@ -293,7 +293,7 @@ const beginnerDict = [
 ];
 
 // -------------------------------------------------------------
-// PROFILE 2: translator-assisted-5.llea (5 essays, 100% translator)
+// PROFILE 2: translator-assisted-5.tvoor (5 essays, 100% translator)
 // -------------------------------------------------------------
 const translatorEssays = [
   {
@@ -586,7 +586,7 @@ function createEssaysData() {
 }
 
 // -------------------------------------------------------------
-// PROFILE 3: intermediate-10.llea (10 essays, medium/yellow zone)
+// PROFILE 3: intermediate-10.tvoor (10 essays, medium/yellow zone)
 // -------------------------------------------------------------
 const intermediateEssays = [
   // 5 older essays (some translator, lower grammar)
@@ -993,7 +993,7 @@ const intermediateDict = [
 ];
 
 // -------------------------------------------------------------
-// PROFILE 4: advanced-15.llea (15 essays, green/high accuracy zone)
+// PROFILE 4: advanced-15.tvoor (15 essays, green/high accuracy zone)
 // -------------------------------------------------------------
 const advancedEssaysRaw = createEssaysData();
 const advancedEssays = [
@@ -1036,7 +1036,7 @@ const advancedDict = [
 ];
 
 // -------------------------------------------------------------
-// PROFILE 5: mastery-20.llea (20 essays, 100/100 points, perfect zone)
+// PROFILE 5: mastery-20.tvoor (20 essays, 100/100 points, perfect zone)
 // -------------------------------------------------------------
 const masteryEssays = [
   ...advancedEssays.slice(0, 10).map((e, idx) => ({ ...e, id: idx + 1, date: daysAgo(20 - idx, 2) })),
@@ -1074,7 +1074,7 @@ const masteryDict = [
 ];
 
 // -------------------------------------------------------------
-// PROFILE 6: student-journey-20.llea (20 essays: 5 A1 -> 5 A2 -> 5 B1 -> 5 B2)
+// PROFILE 6: student-journey-20.tvoor (20 essays: 5 A1 -> 5 A2 -> 5 B1 -> 5 B2)
 // -------------------------------------------------------------
 const journeyEssays = [
   // 1-5: A1 with mistakes and translator
@@ -1116,42 +1116,42 @@ const journeyDict = [
 // Generate files
 const profiles = [
   {
-    filename: "beginner-5.llea",
+    filename: "beginner-5.tvoor",
     data: buildProfile({
       essays: beginnerEssays,
       dictionaryEntries: beginnerDict,
     }),
   },
   {
-    filename: "translator-assisted-5.llea",
+    filename: "translator-assisted-5.tvoor",
     data: buildProfile({
       essays: translatorEssays,
       dictionaryEntries: translatorDict,
     }),
   },
   {
-    filename: "intermediate-10.llea",
+    filename: "intermediate-10.tvoor",
     data: buildProfile({
       essays: intermediateEssays,
       dictionaryEntries: intermediateDict,
     }),
   },
   {
-    filename: "advanced-15.llea",
+    filename: "advanced-15.tvoor",
     data: buildProfile({
       essays: advancedEssays,
       dictionaryEntries: advancedDict,
     }),
   },
   {
-    filename: "mastery-20.llea",
+    filename: "mastery-20.tvoor",
     data: buildProfile({
       essays: masteryEssays,
       dictionaryEntries: masteryDict,
     }),
   },
   {
-    filename: "student-journey-20.llea",
+    filename: "student-journey-20.tvoor",
     data: buildProfile({
       essays: journeyEssays,
       dictionaryEntries: journeyDict,

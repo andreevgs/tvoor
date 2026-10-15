@@ -1,62 +1,56 @@
-# LLEA — Your Smart Language Learning Assistant
+# TVOOR
 
-LLEA is a modern web application designed for practicing foreign languages through writing essays and texts. The app leverages the power of generative Artificial Intelligence (Google Gemini and Qwen) to automatically review your texts, find mistakes, evaluate your grammar, and build your personalized vocabulary.
+TVOOR is a client-side web application for practicing foreign languages through writing essays. Instead of passive vocabulary drills, the app focuses on active text composition, sentence-level grammar feedback, and tracking writing accuracy over time.
 
-## About the Project
+## Capabilities
 
-The main goal of **LLEA** is to help users bridge the gap between theory and practice. Write texts in your target language without the fear of making mistakes, knowing that the AI will carefully review every word.
+### Writing and Text Analysis
+The editor allows composing texts in the target language with real-time length tracking against minimum volume requirements. For learners who need inspiration, a built-in prompt generator provides essay topics. Writers can explicitly flag whether an external translator was used, keeping progress statistics transparent.
 
-- **Write Texts and Essays**: Practice writing in your chosen language. If you're a beginner, you can use a translator (there is a special checkbox to ensure your learning statistics remain accurate).
-- **AI Analysis & Error Correction**: Each of your essays is analyzed by neural networks. The app highlights sentences with mistakes, suggests correct translations, and gives you a grammar score (out of 10).
-- **Detailed Statistics & Progress**: A fair and motivating 0–100 mastery scale! Points are awarded for practice, sentence accuracy, AI grammar rating, and writing without a translator. Mistakes provide valuable learning feedback without wiping out your hard-earned score.
-- **Personalized Dictionary**: Unknown or difficult words are extracted and saved into your personal database for future study.
-- **Multilingual Interface**: Fully localized UI (English, Russian, Belarusian, Polish, Spanish, etc.), with a customizable "Native Language -> Target Language" setup.
-- **Light & Dark Themes**: For a comfortable user experience at any time of the day.
+Essays are evaluated sentence by sentence. The review workflow identifies specific sentences containing errors, displays corrected versions with explanations, and assigns an overall grammar score on a 10-point scale. All past submissions remain accessible in an archive with their full sentence breakdowns.
 
-## Technology Stack
+> ⚠️ **How AI Evaluation Works**
+>
+>TVOOR intentionally does not feature direct API integrations with neural network providers. Instead of automated backend calls requiring paid API keys, the application uses a structured step-by-step prompt dialog: the user copies preformatted review prompts into any web interface (such as Google Gemini, Qwen, or ChatGPT) and pastes the response back into the app.
+>
+> This architectural choice is the key reason TVOOR is completely free, private, and open-source. It eliminates the need for paid developer accounts, subscriptions, or token budgets, while ensuring user writings are never routed through intermediary servers.
 
-- **Framework**: Vue 3 (Composition API)
-- **UI Library**: Vuetify 3 (Material Design)
-- **State Management & Routing**: Pinia, Vue Router
-- **Internationalization**: Vue i18n
-- **Bundler**: Vite
-- **AI Providers**: Google Gemini, Qwen
+### Progress and Scoring
+Progress is measured on a 0 to 100 mastery scale. The scoring model evaluates three factors: the proportion of clean sentences without grammatical mistakes, writing independence from external translation tools, and average grammar quality scores. The progress dashboard displays these metrics alongside historical trend charts and actionable recommendations for areas that need improvement.
 
----
+### Personal Vocabulary
+Words and phrases encountered during writing or text review can be saved into an integrated dictionary. Each record stores the word, its translation, surrounding context, and language pair. The dictionary supports instant search and filtering by language pair.
 
-## How to Run Locally
+### Data Storage and Localization
+All application data—essays, evaluation history, and dictionary entries—lives strictly inside the browser via IndexedDB. There is no external account or database dependency. Users can export their entire workspace into a `.tvoor` file for backup or cross-device transfer, and restore previous backups at any time.
 
-Ensure you have **Node.js** installed on your machine (v18 or v20+ is recommended).
+The application includes light and dark display modes and is fully localized into English, Russian, Belarusian, Polish, German, Spanish, Lithuanian, and Turkish.
 
-1. **Clone the repository and navigate to the project directory:**
+## Development
 
-   ```bash
-   git clone <repository-link>
-   cd llea
-   ```
+### Prerequisites
+Node.js 18 or newer is required.
 
-2. **Install dependencies:**
-   Use `npm` (or alternatively `yarn` / `pnpm`):
+### Local Setup
+Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+Start the development server:
 
-Once started, open the link provided by Vite in your browser (default is [http://localhost:3000/llea/](http://localhost:3000/llea/)). Any changes you make to the code will be instantly reflected in the browser (thanks to instant HMR).
+```bash
+npm run dev
+```
 
-## Build for Production
+The application will be accessible at `http://localhost:3000/tvoor/`.
 
-To generate the static minified files for production deployment:
+### Production Build
+To create a production build:
 
 ```bash
 npm run build
 ```
 
-The optimized production-ready files will be generated in the `dist/` folder.
-
-> The project is already configured for automatic deployment to **GitHub Pages** (via GitHub Actions). Upon any push to the `main` branch, the project will automatically build and deploy.
+The compiled static assets are generated in the `dist` directory.

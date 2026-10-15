@@ -7,7 +7,7 @@ import type {
 
 export * from "./types";
 
-export const DB_NAME = "llea";
+export const DB_NAME = "tvoor";
 export const DB_VERSION = 8;
 
 const STORES = [

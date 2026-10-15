@@ -7,7 +7,7 @@ import VueRouter from "vue-router/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/llea/",
+  base: "/tvoor/",
   plugins: [
     VueRouter(),
     Vue({

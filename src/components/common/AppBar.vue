@@ -4,7 +4,7 @@
     flat
   >
     <template #prepend>
-      <v-app-bar-title class="ps-2 ps-md-5">LLEA</v-app-bar-title>
+      <v-app-bar-title class="ps-2 ps-md-5">TVOOR</v-app-bar-title>
     </template>
     <template #append>
       <v-btn
