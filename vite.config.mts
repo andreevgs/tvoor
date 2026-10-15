@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from "node:url";
 import Vue from "@vitejs/plugin-vue";
-import Fonts from "unplugin-fonts/vite";
 import { defineConfig } from "vite";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 import VueRouter from "vue-router/vite";
@@ -20,17 +19,6 @@ export default defineConfig({
         configFile: "src/styles/settings.scss",
       },
     }),
-    Fonts({
-      fontsource: {
-        families: [
-          {
-            name: "Roboto",
-            weights: [100, 300, 400, 500, 700, 900],
-            styles: ["normal", "italic"],
-          },
-        ],
-      },
-    }),
   ],
   define: { "process.env": {} },
   resolve: {
@@ -41,5 +29,15 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+  },
+  optimizeDeps: {
+    entries: [
+      "src/**/*.{vue,ts,js}",
+    ],
+    include: [
+      "vuetify",
+      "date-fns",
+      "date-fns/locale",
+    ],
   },
 });
