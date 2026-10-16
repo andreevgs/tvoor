@@ -114,7 +114,7 @@
         </v-chip>
       </div>
       <div class="pa-4">
-        <span class="text-body-medium">{{ essay.text }}</span>
+        <span class="text-body-medium essay-text">{{ essay.text }}</span>
       </div>
       <div class="pb-4 px-4 d-flex flex-row ga-2">
         <v-chip class="cursor-pointer rounded-lg">
@@ -139,4 +139,14 @@
   const { essays } = useEssays();
 </script>
 
-<style scoped></style>
+<style scoped>
+.essay-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+</style>

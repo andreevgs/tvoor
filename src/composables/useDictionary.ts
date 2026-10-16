@@ -42,8 +42,34 @@ export function useDictionary() {
     entries: Omit<DictionaryEntry, "currentLanguage" | "targetLanguage">[],
   ) => {
     if (entries.length === 0) return;
+
+    const existingWords = new Set(
+      dictionary.value.map(e => e.word.trim().toLowerCase()),
+    );
+
+    const entriesToAdd: typeof entries = [];
+
+    for (const entry of entries) {
+      const trimmedWord = entry.word.trim();
+      const normalized = trimmedWord.toLowerCase();
+
+      if (!normalized || existingWords.has(normalized)) {
+        continue;
+      }
+
+      existingWords.add(normalized);
+      entriesToAdd.push({
+        ...entry,
+        word: trimmedWord,
+        translate: entry.translate.trim(),
+        pronunciation: entry.pronunciation ? entry.pronunciation.trim() : "",
+      });
+    }
+
+    if (entriesToAdd.length === 0) return;
+
     await dictionaryRepository.putMany(
-      entries.map(entry => ({
+      entriesToAdd.map(entry => ({
         ...entry,
         currentLanguage: languageStore.currentLanguage,
         targetLanguage: languageStore.targetLanguage,
